@@ -1,0 +1,31 @@
+.attributesContainer h3 {
+  font-size: 1.5rem;
+  color: var(--theme-color);
+  margin: 24px 0;
+}
+
+.attributesContainerSub {
+  display: flex;
+  justify-content: space-between;
+}
+
+.attributesContainerSub div {
+  width: 150px;
+  border-radius: 10px;
+  box-shadow: rgba(245, 92, 92, 0.123) 0px 4px 16px,
+    rgba(26, 17, 17, 0.05) 0px 8px 32px;
+  text-align: center;
+  padding: 25px 20px 20px;
+  margin-top: 20px;
+}
+
+.attributesContainerSub p {
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+  .attributesContainerSub {
+    flex-wrap: wrap;
+  }
+}
