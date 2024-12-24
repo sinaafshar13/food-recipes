@@ -1,0 +1,20 @@
+
+.instructionContainer h3 {
+  font-size: var(--h2-font-size);
+  color: var(--theme-color);
+  margin: 24px 0;
+}
+
+.instructionContainer li {
+  font-size: var(--normal-font);
+  font-weight: 500;
+  line-height: 2.5rem;
+  list-style: none;
+  column-gap: 0.5rem;
+
+}
+
+.instructionContainer li i {
+  color: var(--theme-color);
+}
+

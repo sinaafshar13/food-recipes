@@ -17,12 +17,12 @@ const Hero = () => {
           Food Recipes is an online food ordering and delivery platform. Here we delivered so fast!
           </p>
           <Link
-          href="/heroPage"
+          href="/menu"
           className={clsx(styles.heroButton, "button", "buttonFlex")}
         >
           See all
           <i
-            className={clsx(styles.heroButtonIcon, "bx bx-right-arrow-alt")}
+            className={clsx(styles.heroButtonIcon, "bx bx-label")}
           ></i>
         </Link>
           

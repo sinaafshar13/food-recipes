@@ -1,5 +1,5 @@
 .attributesContainer h3 {
-  font-size: 1.5rem;
+  font-size: var(--h2-font-size);
   color: var(--theme-color);
   margin: 24px 0;
 }

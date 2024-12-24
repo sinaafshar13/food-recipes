@@ -1,14 +1,12 @@
-import React from 'react'
-import Hero from '../Components/modules/Hero'
-import Attributes from '../Components/modules/Attributes'
+import React from "react";
+import HomePage from "../Components/templates/HomePage";
 
 const index = () => {
   return (
     <>
-    <Hero />
-    <Attributes />
+      <HomePage />
     </>
-  )
-}
+  );
+};
 
-export default index
+export default index;

@@ -1,0 +1,32 @@
+.guideContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3rem;
+}
+
+.guideContainer a {
+  box-shadow: rgba(245, 92, 92, 0.123) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  padding: 15px 50px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.guideButton {
+  background-color: var(--container-color);
+  color: var(--title-color);
+  transition: all .1s ease-in-out;
+}
+.guideButton:hover {
+  color: var(--container-color);
+  border-color: var(--theme-color-dark);
+}
+@media (max-width: 768px) {
+  .guideContainer  {
+    flex-direction: column;
+    align-items: center;
+    row-gap: .5rem;
+  }
+  .guideButton {
+    width : 350px
+  }
+}

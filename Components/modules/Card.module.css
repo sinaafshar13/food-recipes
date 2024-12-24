@@ -1,0 +1,70 @@
+.menuCards {
+  padding: 1.75rem 1.5rem 1.5rem;
+  background-color: var(--container-color);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cardsImage {
+  width: 100%;
+  height: 10rem;
+  flex-grow: 0;
+  border-radius: 1rem;
+}
+.cardsHeader {
+  margin: 1.5rem 0 1rem;
+  font-size: var(--small-font-size);
+}
+.cardsScore {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  column-gap: 0.3rem;
+  color: var(--title-color-dark);
+  font-size: var(--tiny-font-size);
+  font-weight: var(--font-medium);
+}
+.scoresReview {
+  color: var(--sub-color);
+  font-weight: normal;
+}
+.cardsInfos {
+  display: flex;
+  justify-content: space-between;
+}
+.cardsInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 0.5rem;
+}
+.cardsInfo :nth-child(n) {
+  display: flex;
+  align-items: center;
+  column-gap: 0.25rem;
+  color: var(--sub-color);
+}
+.infosText {
+  font-size: var(--tiny-font-size);
+  font-weight: normal;
+}
+.cardsPrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--sub-color);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  color: var(--text-color);
+}
+.priceNumber {
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color-dark);
+}
+.cardsButton {
+  width: 100%;
+  font-size: var(--small-font-size);
+  text-align: center;
+}

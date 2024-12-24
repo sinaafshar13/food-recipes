@@ -1,0 +1,34 @@
+.subMenuContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 3rem;
+  justify-content: space-between;
+}
+
+.menuContainer h2 {
+  border-bottom: 5px solid var(--theme-color);
+  width: fit-content;
+  margin: 4rem 0 2rem;
+  font-size: var(--h1-font-size);
+}
+@media (max-width: 768px) {
+  .subMenuContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .menuContainer h2{
+    margin-top: 8rem;
+  }
+}
+@media (max-width: 578px) {
+  .subMenuContainer {
+    grid-template-columns: repeat(1, 1fr);
+    
+  }
+  .menuContainer {
+    padding: 0 3rem; 
+   
+  }
+  .menuContainer h2 {
+    margin: 8rem auto 2rem;
+  }
+}
