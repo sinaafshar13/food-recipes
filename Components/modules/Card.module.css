@@ -2,7 +2,11 @@
   padding: 1.75rem 1.5rem 1.5rem;
   background-color: var(--container-color);
   border-radius: 0.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.1);
+  position: relative;
+}
+.imageWrapper {
+  position: relative;
 }
 .cardsImage {
   width: 100%;
@@ -10,18 +14,23 @@
   flex-grow: 0;
   border-radius: 1rem;
 }
+.cardDiscount {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  background-color: var(--theme-color-dark);
+  color: var(--container-color);
+  padding: 0 0.25rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-size: var(--h3-font-size);
+  border: 2px solid var(--container-color);
+  border-left: 0;
+  display: inline-flex;
+  align-items: center;
+}
 .cardsHeader {
   margin: 1.5rem 0 1rem;
   font-size: var(--small-font-size);
-}
-.cardsScore {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-  column-gap: 0.3rem;
-  color: var(--title-color-dark);
-  font-size: var(--tiny-font-size);
-  font-weight: var(--font-medium);
 }
 .scoresReview {
   color: var(--sub-color);
@@ -51,12 +60,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1.5rem;
-  padding: 1.5rem 0;
+  margin-top: 1rem;
+  padding: 1rem 0;
   border-top: 1px solid var(--sub-color);
   font-size: var(--small-font-size);
   font-weight: var(--font-medium);
   color: var(--text-color);
+}
+.priceDiscount {
+  color: var(--theme-color);
+  font-weight: var(--font-semi-bold);
+}
+.priceOrigin {
+  color: var(--sub-color);
+  text-decoration: line-through;
+  padding-left: .4rem;
 }
 .priceNumber {
   font-size: var(--normal-font-size);

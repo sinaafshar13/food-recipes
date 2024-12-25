@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
-import carMarketImg from "../../public/images/banner.png";
+import HeroImg from "../../public/images/banner.png";
 import styles from "./Hero.module.css";
 
 const Hero = () => {
@@ -28,7 +28,7 @@ const Hero = () => {
           
         </div>
         <div className={styles.heroImg}>
-          <Image src={carMarketImg} alt="Car Market" />
+          <Image src={HeroImg} alt="Car Market" />
         </div>
       </div>
     </section>

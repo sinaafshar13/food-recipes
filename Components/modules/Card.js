@@ -2,21 +2,28 @@ import Link from "next/link";
 import styles from "./Card.module.css";
 import Image from "next/image";
 import clsx from "clsx";
-import img1 from "../../public/images/1.jpeg"
 
 const Card = (props) => {
-  const { id, image, name, price, details, discount } = props;
+  const { id, name, price, details, discount } = props;
   console.log(`/public/images/${id}.jpeg`);
 
   return (
     <div className={styles.menuCards}>
-      <Image
-        className={styles.cardsImage}
-        src={`/images/${id}.jpeg`}
-        alt="Car"
-        width={300}
-        height={200}
-      />
+      <div className={styles.imageWrapper}>
+        <Image
+          className={styles.cardsImage}
+          src={`/images/${id}.jpeg`}
+          alt="Car"
+          width={300}
+          height={200}
+        />
+        {discount ? (
+          <span className={styles.cardDiscount}>
+            <i className="bx bxs-offer"></i>
+            {discount}
+          </span>
+        ) : null}
+      </div>
       <div className={styles.cardsHeader}>
         <h3 className={styles.cardsName}>
           {name} {}
@@ -28,11 +35,11 @@ const Card = (props) => {
       <div className={styles.cardsInfos}>
         <div className={styles.cardsInfo}>
           <div>
-          <i class="bx bx-category"></i>{" "}
-          <span className={styles.infosText}>{details[1].RecipeType}</span>
+            <i class="bx bx-category"></i>{" "}
+            <span className={styles.infosText}>{details[1].RecipeType}</span>
           </div>
           <div>
-          <i class='bx bx-cool'></i>{" "}
+            <i class="bx bx-cool"></i>{" "}
             <span className={styles.infosText}>{details[2].Difficulty}</span>
           </div>
         </div>
@@ -49,9 +56,20 @@ const Card = (props) => {
       </div>
       <div className={styles.cardsPrice}>
         <span className={styles.priceText}>Price</span>
-        <span className={styles.priceNumber}>${price}</span>
+        <span className={styles.priceNumber}>
+        {discount ? (
+          <span className={styles.priceDiscount}>
+            {(price * (100 - discount)) / 100}$ 
+            <span className={styles.priceOrigin}>{price}$</span>
+          </span>
+        ) : (
+          <span>{price}$</span>
+        )}
+        </span>
       </div>
-      <Link href="/" className={clsx(styles.cardsButton, "button")}>View Details</Link>
+      <Link href={`http://localhost:3000/menu/${id}`} className={clsx(styles.cardsButton, "button")}>
+        View Details
+      </Link>
     </div>
   );
 };

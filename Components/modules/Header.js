@@ -36,7 +36,7 @@ const Header = () => {
       >
         <Link href="/" className={styles.navLogo}>
           <Logo />
-          FOOD RECIPES
+          Food Recipes
         </Link>
         <ul className={styles.navList}>
           {navItems.map(({ href, label }) => (

@@ -23,4 +23,8 @@
 .navList {
   display: flex;
   column-gap: 2rem;
+  font-size: var(--normal-font-size);
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  
 }

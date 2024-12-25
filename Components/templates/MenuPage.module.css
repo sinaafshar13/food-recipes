@@ -11,24 +11,28 @@
   margin: 4rem 0 2rem;
   font-size: var(--h1-font-size);
 }
-@media (max-width: 768px) {
-  .subMenuContainer {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 992px) {
+  .menuContainer h2 {
+    margin: 6rem auto 2rem;
   }
-  .menuContainer h2{
+  .subMenuContainer {
+    grid-template-columns: repeat(2, 250px);
+    column-gap: 2rem;
+    justify-content: center;
+    padding: 0 3rem;
+  }
+  .menuContainer h2 {
+    margin-top: 4rem;
+  }
+}
+@media (max-width: 768px) {
+  .menuContainer h2 {
     margin-top: 8rem;
   }
 }
 @media (max-width: 578px) {
   .subMenuContainer {
-    grid-template-columns: repeat(1, 1fr);
-    
+    grid-template-columns: repeat(1, 320px);
   }
-  .menuContainer {
-    padding: 0 3rem; 
-   
-  }
-  .menuContainer h2 {
-    margin: 8rem auto 2rem;
-  }
+  
 }
