@@ -1,13 +1,14 @@
 import { useRouter } from "next/router";
 import React from "react";
+import DetailsPage from "../../Components/templates/DetailsPage";
 
 const Details = ({ data }) => {
   const router = useRouter();
+  
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
-
-  return <div>Details</div>;
+  return <DetailsPage  {...data}/>;
 };
 
 export default Details;
@@ -19,8 +20,6 @@ export async function getStaticPaths() {
   const paths = data.map((food) => ({
     params: { id: food.id.toString() },
   }));
-  console.log(paths);
-
   return {
     paths,
     fallback: true,

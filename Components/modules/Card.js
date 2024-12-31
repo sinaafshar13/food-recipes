@@ -8,10 +8,10 @@ const Card = (props) => {
   console.log(`/public/images/${id}.jpeg`);
 
   return (
-    <div className={styles.menuCards}>
+    <div className={styles.menuCard}>
       <div className={styles.imageWrapper}>
         <Image
-          className={styles.cardsImage}
+          className={styles.cardImage}
           src={`/images/${id}.jpeg`}
           alt="Car"
           width={300}
@@ -24,16 +24,13 @@ const Card = (props) => {
           </span>
         ) : null}
       </div>
-      <div className={styles.cardsHeader}>
-        <h3 className={styles.cardsName}>
-          {name} {}
+      <div className={styles.cardHeader}>
+        <h3 className={styles.cardName}>
+          {name}
         </h3>
-        <div className={styles.cardsScore}>
-          <div className={styles.scoresNumber}>{}</div>
-        </div>
       </div>
-      <div className={styles.cardsInfos}>
-        <div className={styles.cardsInfo}>
+      <div className={styles.cardInfos}>
+        <div className={styles.cardInfo}>
           <div>
             <i class="bx bx-category"></i>{" "}
             <span className={styles.infosText}>{details[1].RecipeType}</span>
@@ -43,7 +40,7 @@ const Card = (props) => {
             <span className={styles.infosText}>{details[2].Difficulty}</span>
           </div>
         </div>
-        <div className={styles.cardsInfo}>
+        <div className={styles.cardInfo}>
           <div>
             <i className="bi bi-geo-alt"></i>{" "}
             <span className={styles.infosText}>{details[0].Cuisine}</span>
@@ -54,7 +51,7 @@ const Card = (props) => {
           </div>
         </div>
       </div>
-      <div className={styles.cardsPrice}>
+      <div className={styles.cardPrice}>
         <span className={styles.priceText}>Price</span>
         <span className={styles.priceNumber}>
         {discount ? (
@@ -67,7 +64,7 @@ const Card = (props) => {
         )}
         </span>
       </div>
-      <Link href={`http://localhost:3000/menu/${id}`} className={clsx(styles.cardsButton, "button")}>
+      <Link href={`http://localhost:3000/menu/${id}`} className={clsx(styles.cardButton, "button")}>
         View Details
       </Link>
     </div>

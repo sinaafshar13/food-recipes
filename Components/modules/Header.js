@@ -2,26 +2,29 @@ import styles from "./Header.module.css";
 import Link from "next/link";
 import clsx from "clsx";
 import Logo from "../icons/Logo";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const Header = () => {
+  const headerRef = useRef(null);
+
   useEffect(() => {
     const handleScroll = () => {
-      const header = document.querySelector(".header");
-      if (window.scrollY > 80) {
-        console.log(header?.classList.contains("headerBorder"));
-        header?.classList.add("headerBorder");
-      } else header?.classList.remove("headerBorder");
+      if (headerRef.current) {
+        if (window.scrollY > 80) {
+          headerRef.current.classList.add("headerBorder");
+        } else {
+          headerRef.current.classList.remove("headerBorder");
+        }
+      }
     };
+  
 
-    // Attach the event listener
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  },[] );
+  }, []);
 
   const navItems = [
     { href: "/menu", label: "Menu" },
@@ -29,11 +32,8 @@ const Header = () => {
   ];
 
   return (
-    <header className={`${styles.header} header`}>
-      <nav
-        className={clsx("container", "nav")}
-        aria-label="Main navigation"
-      >
+    <header ref={headerRef} className={`${styles.header} header`}>
+      <nav className={clsx("container", "nav")} aria-label="Main navigation">
         <Link href="/" className={styles.navLogo}>
           <Logo />
           Food Recipes
