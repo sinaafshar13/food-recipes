@@ -12,7 +12,7 @@
   --text-color: hsl(0, 0%, 28%);
   --body-color: hsl(var(--hue), var(--sat), 98%);
   --sub-color: #9c9c9c;
-  --theme-color: hsl(0, 80%, 46%);
+  --theme-color: hsl(0, 80%, 30%);
   --theme-color-light: rgba(211, 21, 21, 0.1);
   --theme-color-dark: hsl(0, 80%, 15%);
   --container-color: #fff;
@@ -120,7 +120,7 @@ img {
   transition: all 0.7s;
   border-radius: 2rem;
   padding: 0 3rem;
-  border: 1px solid rgb(221, 153, 153);
+  border: 1px solid rgba(221, 153, 153, 0.325);
 }
 
 .headerBorder {
@@ -142,15 +142,10 @@ img {
   text-align: center;
 }
 .sectionTitle {
-  font-size: var(--small-font-size);
-  color: var(--theme-color);
-  background-color: var(--theme-color-light);
-  border-radius: .5rem;
-  font-weight: var(--font-medium);
-  display: inline-block;
-  align-items: center;
-  padding : 1rem 2rem;
-  margin-bottom: 1rem;
+  border-bottom: 5px solid var(--theme-color);
+  width: fit-content;
+  font-size: var(--h1-font-size);
+  display: inline-flex;
   }
 .sectionSub {
   display: block;

@@ -2,6 +2,8 @@
   display: flex;
   justify-content:space-between;
   align-items: center;
+  margin-top: 4rem;
+  height: 100vd;
 }
 .heroImg{
   flex: 1;
@@ -54,7 +56,6 @@
   .heroImg {
     max-width: 70%;
     align-self: center;
-    padding-top: 8rem;
   }
 
   .heroTitle {

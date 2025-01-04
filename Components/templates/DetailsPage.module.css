@@ -6,7 +6,7 @@
   border-bottom: 5px solid var(--theme-color);
   width: fit-content;
   margin-bottom: 50px;
-  font-size: var(--h2-font-size);
+  font-size: var(--h1-font-size);
 }
 
 .banner {

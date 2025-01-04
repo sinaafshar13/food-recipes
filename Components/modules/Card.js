@@ -5,8 +5,6 @@ import clsx from "clsx";
 
 const Card = (props) => {
   const { id, name, price, details, discount } = props;
-  console.log(`/public/images/${id}.jpeg`);
-
   return (
     <div className={styles.menuCard}>
       <div className={styles.imageWrapper}>
@@ -32,11 +30,11 @@ const Card = (props) => {
       <div className={styles.cardInfos}>
         <div className={styles.cardInfo}>
           <div>
-            <i class="bx bx-category"></i>{" "}
+            <i className="bx bx-category"></i>{" "}
             <span className={styles.infosText}>{details[1].RecipeType}</span>
           </div>
           <div>
-            <i class="bx bx-cool"></i>{" "}
+            <i className="bx bx-cool"></i>{" "}
             <span className={styles.infosText}>{details[2].Difficulty}</span>
           </div>
         </div>
@@ -46,8 +44,8 @@ const Card = (props) => {
             <span className={styles.infosText}>{details[0].Cuisine}</span>
           </div>
           <div>
-            <i className="bx bx-user"></i>
-            <span className={styles.infosText}>{details[5].Serves}</span>
+            <i className="bx bx-time"></i>
+            <span className={styles.infosText}>{details[4]["Cooking Time"]}</span>
           </div>
         </div>
       </div>

@@ -36,7 +36,7 @@ const Header = () => {
       <nav className={clsx("container", "nav")} aria-label="Main navigation">
         <Link href="/" className={styles.navLogo}>
           <Logo />
-          Food Recipes
+          Foodiato
         </Link>
         <ul className={styles.navList}>
           {navItems.map(({ href, label }) => (

@@ -9,23 +9,33 @@ export default categories;
 
 export async function getServerSideProps(context) {
   const {
-    query: { Difficulty, search },
+    query: { Difficulty, search, time },
   } = context;
-  console.log(Difficulty);
-
   const res = await fetch("http://localhost:5000/data");
   const data = await res.json();
+
   let filteredData = data;
   if (Difficulty) {
     filteredData = filteredData.filter((item) =>
       item.details.some((detail) => detail.Difficulty === Difficulty)
     );
   }
-
-  // Filter by search if provided
   if (search) {
     filteredData = filteredData.filter((item) =>
       item.name.toLowerCase().includes(search.toLowerCase())
+    );
+  }
+  if (time) {
+    filteredData = filteredData.filter((item) =>
+      item.details.some((detail) => {
+        const cookingTime = detail["Cooking Time"] || "";
+        const [timeDetail] = cookingTime.split(" ");
+        if (time === "Less" && timeDetail && +timeDetail <= 30) {
+          return item;
+        } else if (time === "More" && +timeDetail > 30) {
+          return item;
+        }
+      })
     );
   }
   return {

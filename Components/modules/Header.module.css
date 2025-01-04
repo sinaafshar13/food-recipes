@@ -14,17 +14,14 @@
   align-items: center;
   column-gap: 0.5rem;
 }
+.navLink:hover,
 .navLogo:hover {
   color: var(--theme-color-dark);
-}
-.navLink:hover {
-  color: var(--title-color-dark);
 }
 .navList {
   display: flex;
   column-gap: 2rem;
   font-size: var(--normal-font-size);
-  color: var(--title-color);
+  color: var(--theme-color);
   font-weight: var(--font-medium);
-  
 }

@@ -1,93 +1,99 @@
-import React, { useEffect, useState, useRef } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Card from "../modules/Card";
-
+import clsx from "clsx";
 import styles from "./CategoriesPage.module.css";
 import { useRouter } from "next/router";
 
 const CategoriesPage = ({ data }) => {
   const router = useRouter();
-  const [categories, setCategories] = useState([]);
-  const [sortType, setSortType] = useState("");
-  const accordionRef = useRef(null);
-  const [itemToggle, setItemToggle] = useState(0);
+  const [query, setQuery] = useState({});
+  const timeHandler = (e) => {
+    const { name, value } = e.target;
+    const newQuery =
+      value === "None"
+        ? (() => {
+            const { [name]: _, ...rest } = query;
+            return rest;
+          })()
+        : { ...query, [name]: value };
+    setQuery(newQuery);
+    router.push({ pathname: "/category", query: newQuery });
+  };
   const [items, setItems] = useState([
     {
-      title: "Sorting categories",
-      content: (
-        <div className={styles.accordionContentTexts}>
-          <label>
-            <input
-              onChange={(e) => setSortType(e.target.value)}
-              type="radio"
-              name="sorting"
-              value="less"
-            />
-            <span className={styles.accordionContentText}>
-              Less than 30 min
-            </span>
-          </label>
-          <label>
-            <input
-              onChange={(e) => setSortType(e.target.value)}
-              type="radio"
-              name="sorting"
-              value="more"
-            />
-            <span className={styles.accordionContentText}>
-              More than 30 min
-            </span>
-          </label>
-        </div>
-      ),
+      title: "Time categories",
       isOpen: true,
     },
   ]);
+  useEffect(() => {
+    const { Difficulty, time, search } = router.query;
+
+    if (
+      query.Difficulty !== Difficulty ||
+      query.time !== time ||
+      query.search !== search
+    )
+      setQuery({ Difficulty, time, search });
+  }, [router.query]);
   const toggleAccordion = (index) => {
     setItems((prevState) =>
       prevState.map((item, i) =>
-        i === index
-          ? { ...item, isOpen: !item.isOpen }
-          : { ...item, isOpen: false }
+        i === index ? { ...item, isOpen: !item.isOpen } : item
       )
     );
   };
 
   const searchHandler = (e) => {
-    router.push({ pathname: "/category", query: { search: e.target.value } });
-  };
-  const toggleFilter = (index) => {
-    setItemToggle(index);
-    if (index === 0) router.push({ pathname: "/category" });
-    else if (index === 1)
-      router.push({ pathname: "/category", query: { Difficulty: "Hard" } });
-    else if (index === 2)
-      router.push({ pathname: "/category", query: { Difficulty: "Medium" } });
-    else if (index === 3)
-      router.push({ pathname: "/category", query: { Difficulty: "Easy" } });
+    const { value, name } = e.target;
+    const newQuery =
+      value === ""
+        ? (() => {
+            const { [name]: _, ...rest } = query;
+            return rest;
+          })()
+        : { ...query, [name]: value };
+    setQuery(newQuery);
+    router.push({ pathname: "/category", query: newQuery });
   };
 
-  const timeHandler = (e) => {
-    router.push({ pathname: "/category", query: { time: "Hard" } });
+  const toggleFilter = (e) => {
+    const { value, name } = e.target;
+    const newQuery =
+      value === "All"
+        ? (() => {
+            const { [name]: _, ...rest } = query;
+            return rest;
+          })()
+        : { ...query, [name]: value };
+    setQuery(newQuery);
+    router.push({ pathname: "/category", query: newQuery });
   };
 
   return (
     <main className={styles.main}>
       <section className={`${styles.categories} container section`}>
         <div className={styles.categoriesHeaderContainer}>
-          <h2 className="sectionTitle">Categories List</h2>
+          <h2 className="sectionTitle">Category</h2>
           <div className={styles.categoriesSearchContainer}>
             <input
               onChange={searchHandler}
+              value={query.search || ""}
               type="text"
+              name="search"
               className={styles.searchContainerInput}
+              placeholder="Search..."
             />
             <button
-              onClick={searchHandler}
+              onClick={() =>
+                router.push({ pathname: "/category", query: query })
+              }
               className={`${styles.button} ${styles.buttonFlex} ${styles.searchContainerButton}`}
             >
               <i
-                className={`${styles.bx} ${styles["bx-search"]} ${styles.searchContainerButtonIcon}`}
+                className={clsx(
+                  "bx bx-search",
+                  styles.searchContainerButtonIcon
+                )}
               ></i>
               Search
             </button>
@@ -95,47 +101,20 @@ const CategoriesPage = ({ data }) => {
         </div>
 
         <div className={styles.categoriesFilters}>
-          <span
-            onClick={() => toggleFilter(0)}
-            className={
-              itemToggle === 0
-                ? `${styles.categoriesFilter} ${styles.categoriesFilterActive}`
-                : styles.categoriesFilter
-            }
-          >
-            All
-          </span>
-          <span
-            onClick={() => toggleFilter(1)}
-            className={
-              itemToggle === 1
-                ? `${styles.categoriesFilter} ${styles.categoriesFilterActive}`
-                : styles.categoriesFilter
-            }
-          >
-            Hard
-          </span>
-          <span
-            onClick={() => toggleFilter(2)}
-            className={
-              itemToggle === 2
-                ? `${styles.categoriesFilter} ${styles.categoriesFilterActive}`
-                : styles.categoriesFilter
-            }
-          >
-            Medium
-          </span>
-          <span
-            value="Easy"
-            onClick={() => toggleFilter(3)}
-            className={
-              itemToggle === 3
-                ? `${styles.categoriesFilter} ${styles.categoriesFilterActive}`
-                : styles.categoriesFilter
-            }
-          >
-            Easy
-          </span>
+          {["All", "Hard", "Medium", "Easy"].map((value) => (
+            <div key={value}>
+              <input
+                type="radio"
+                name="Difficulty"
+                value={value}
+                id={value}
+                checked={value === (query.Difficulty || "All")}
+                onChange={toggleFilter}
+                className={styles.categoriesFilter}
+              />
+              <label htmlFor={value}>{value}</label>
+            </div>
+          ))}
         </div>
 
         <div className={styles.categoriesSection}>
@@ -149,17 +128,14 @@ const CategoriesPage = ({ data }) => {
                       : styles.accordionHeader
                   }
                   onClick={() => toggleAccordion(index)}
+                  aria-expanded={item.isOpen}
                 >
                   {item.title}
-                  <span>
+                  <span className={styles.accordionIcon}>
                     {item.isOpen ? (
-                      <i
-                        className={`${styles.bx} ${styles["bxs-chevron-up"]}`}
-                      ></i>
+                      <i className="bx bxs-chevron-up"></i>
                     ) : (
-                      <i
-                        className={`${styles.bx} ${styles["bxs-chevron-down"]}`}
-                      ></i>
+                      <i className="bx bxs-chevron-down"></i>
                     )}
                   </span>
                 </div>
@@ -170,7 +146,24 @@ const CategoriesPage = ({ data }) => {
                       : styles.accordionContent
                   }
                 >
-                  {item.content}
+                  <div className={styles.accordionContentTexts}>
+                    {["None", "Less", "More"].map((value) => (
+                      <div key={value} >
+                        <input
+                          type="radio"
+                          name="time"
+                          value={value}
+                          id={value}
+                          onChange={timeHandler}
+                          checked={value === (query.time || "None")}
+                          className={styles.accordionContentText}
+                        />
+                        <label htmlFor={value}>
+                          {value === "None" ? "None" : `${value} than 30 mins`}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -178,7 +171,7 @@ const CategoriesPage = ({ data }) => {
 
           {data.length === 0 ? (
             <p className={styles.emptySearchAlert}>
-              !!!Sorry we don't find any food that match... try again please
+              Sorry, no results found. Try refining your search!
             </p>
           ) : (
             <div className={styles.categoriesContainer}>
