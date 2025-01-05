@@ -62,7 +62,7 @@ const Card = (props) => {
         )}
         </span>
       </div>
-      <Link href={`http://localhost:3000/menu/${id}`} className={clsx(styles.cardButton, "button")}>
+      <Link href={`https://foodiato.vercel.app/menu/${id}`} className={clsx(styles.cardButton, "button")}>
         View Details
       </Link>
     </div>
