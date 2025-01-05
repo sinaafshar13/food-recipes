@@ -3,7 +3,7 @@ import clsx from "clsx";
 const Definition = ()=> {
   return (
     <div className={clsx(styles.definitionContainer , "section container")}>
-      <h3>Who We Are?</h3>
+      <h3>Who we are?</h3>
       <p>
         Food Recipes company was founded in 2024 by Sina Afshari.The company began food delivery in August 2024 with the launch
         of the UberFRESH service in Santa Monica, California. In 2025, the

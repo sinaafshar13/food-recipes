@@ -4,7 +4,7 @@ import clsx from "clsx";
 const Instruction = () => {
   return (
     <div className={clsx("container", styles.instructionContainer)}>
-      <h3>How to Order?</h3>
+      <h3>How to order?</h3>
       <ul>
         <li>
           {" "}

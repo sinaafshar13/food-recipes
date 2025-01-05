@@ -15,7 +15,7 @@ const CardSwiper = ({ data }) => {
       className={clsx("section container", styles.cardSwiper)}
       id="cardSwiper"
     >
-      <h3 className={styles.cardSwiperTitle}>How to Order?</h3>
+      <h3 className={styles.cardSwiperTitle}>Most popular</h3>
       <Swiper
         autoplay={{
           delay: 4000,
