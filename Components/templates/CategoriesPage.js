@@ -22,7 +22,7 @@ const CategoriesPage = ({ data }) => {
   const [items, setItems] = useState([
     {
       title: "Time categories",
-      isOpen: true,
+      isOpen: false,
     },
   ]);
   useEffect(() => {

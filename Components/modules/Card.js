@@ -31,7 +31,7 @@ const Card = (props) => {
         <div className={styles.cardInfo}>
           <div>
             <i className="bx bx-category"></i>{" "}
-            <span className={styles.infosText}>{details[1].RecipeType}</span>
+            <span className={styles.infosText}>{details[1]["Recipe Type"]}</span>
           </div>
           <div>
             <i className="bx bx-cool"></i>{" "}

@@ -7,11 +7,13 @@ import Restrictions from "../modules/Restrictions";
 import styles from "./HomePage.module.css";
 
 import Hero from "../modules/Hero";
+import CardSwiper from "../modules/CardSwiper";
 
-const HomePage = () => {
+const HomePage = ({data}) => {
   return (
     <>
       <Hero />
+      <CardSwiper data={data}/>
       <Attributes />
       <Definition />
       <Companies />

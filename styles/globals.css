@@ -118,9 +118,6 @@ img {
   justify-content: space-between;
   align-items: center;
   transition: all 0.7s;
-  border-radius: 2rem;
-  padding: 0 3rem;
-  border: 1px solid rgba(221, 153, 153, 0.325);
 }
 
 .headerBorder {
@@ -136,7 +133,7 @@ img {
   }
 }
 .section {
-  padding: 6rem 0 2rem;
+  padding: 2rem 0 2rem;
 }
 .sectionHeader{
   text-align: center;
@@ -199,7 +196,7 @@ img {
     height: 22px;
   }
   .section {
-    padding: 6rem 0 4rem;
+    padding: 1rem 0 1rem;
   }
 }
 @media screen and (max-width: 768px) {

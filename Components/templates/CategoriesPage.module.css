@@ -3,6 +3,7 @@
   justify-content: space-between;
   padding: var(--mb-2) 0 var(--mb-0-5);
   align-items: center;
+  margin-top: 3rem;
 }
 .categoriesSearchContainer {
   display: flex;
@@ -65,7 +66,8 @@
   justify-content: center;
   align-items: center;
   column-gap: 0.75rem;
-  margin-bottom: var(--mb-0-5);
+  margin: var(--mb-0-5) 0;
+
 }
 .categoriesFilters input[type="radio"] {
   display: none;
@@ -139,7 +141,7 @@
   padding: 1rem 1rem;
 }
 .accordionContentTexts div {
-  margin: 0.5rem 0;
+  margin: .25rem 0;
 }
 .accordionContentText {
   padding: 0 0.4rem;
@@ -151,7 +153,6 @@
 .accordionContentText + label {
   cursor: pointer;
   font-weight: var(--font-medium);
-  padding: 0.25rem 0;
   border-radius: 0.5rem;
   display: inline-flex
 }
@@ -243,8 +244,8 @@
     left: 0;
     width: 100%;
     background-color: var(--body-color);
-    padding: 2rem 1.5rem 4rem;
-    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
+    padding: 0 1rem;
+    box-shadow: 0 -1px 4px rgba(255, 0, 0, 0.15);
     border-radius: 1.5rem 1.5rem 0 0;
     transition: all 0.3s;
   }
