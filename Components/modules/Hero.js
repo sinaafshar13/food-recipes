@@ -14,7 +14,7 @@ const Hero = () => {
             Delivery and Takeout!
           </h1>
           <p className={styles.heroDesc}>
-          Food Recipes is an online food ordering and delivery platform. Here we delivered so fast!
+          Foodiato is an online food ordering and delivery platform. Here we delivered so fast!
           </p>
           <Link
           href="/menu"

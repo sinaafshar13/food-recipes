@@ -6,20 +6,20 @@ const Guide = () => {
   return (
     <div className={clsx("container", styles.guideContainer)}>
       <Link
-        href="/guidePage"
+        href="/menu"
         className={clsx(styles.guideButton, "button", "buttonFlex")}
       >
         <i className="bx bxs-food-menu"></i> Menu
       </Link>
       <Link
-        href="/guidePage"
+        href="/category"
         className={clsx(styles.guideButton, "button", "buttonFlex")}
       >
         <i className="bx bxs-dashboard"></i>
         Category
       </Link>
       <Link
-        href="/guidePage"
+        href="/"
         className={clsx(styles.guideButton, "button", "buttonFlex")}
       >
         <i className="bx bxs-discount"></i>
